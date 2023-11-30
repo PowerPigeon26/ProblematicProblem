@@ -23,7 +23,11 @@ namespace ProblematicProblem
                 string userName = Console.ReadLine();
                 Console.WriteLine();
                 Console.Write("What is your age? ");
-                int userAge = int.Parse(Console.ReadLine());
+                int userAge;
+                while (!int.TryParse(Console.ReadLine(), out userAge) || (userAge < 1))
+                {
+                    Console.WriteLine("Non valid answer given for age, try again");
+                }
                 Console.WriteLine();
                 Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
                 bool seeList = (Console.ReadLine().ToLower() == "sure");
